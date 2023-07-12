@@ -5,6 +5,7 @@ if not "%2"=="-silence" ( echo import environment settings to vscode cmd. && ech
 @rem -------------- options ----------------------------------------------------
 set proj_dir=C:\Users\~\project\proj_tmpl_local
 set git_dir=C:\Users\~\project\env_common\PortableGit
+set git_work_dir=C:\Users\~\project\.git
 set jdk_dir=%proj_dir%\env\jdk
 set node_dir=%proj_dir%\env\node
 set python_dir=%proj_dir%\env\python
@@ -15,6 +16,7 @@ set depl_dir=%proj_dir%\depl
 @rem git
 if exist "%git_dir%" (
     set "path=%git_dir%\bin;%path%"
+    if exist %git_work_dir% ( set "GIT_DIR=%git_work_dir%" )
     if not "%2"=="-silence" ( echo ... set git path success. )
 ) else if not "%2"=="-silence" ( echo ... set git path failure. )
 

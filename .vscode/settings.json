@@ -41,7 +41,7 @@
             },
             "previewLimit": 50,
             "server": "192.168.198.3",
-            "port": 3307,
+            "port": 3317,
             "driver": "MySQL",
             "name": "proj_tmpl_mysql_dev",
             "database": "dev_db",
@@ -55,7 +55,7 @@
             },
             "previewLimit": 50,
             "server": "192.168.198.3",
-            "port": 3306,
+            "port": 3316,
             "driver": "MySQL",
             "name": "proj_tmpl_mysql_prod",
             "database": "prod_db",
@@ -63,5 +63,6 @@
             "password": "123456"
         }
     ],
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.compile.nullAnalysis.mode": "automatic"
 }

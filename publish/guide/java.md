@@ -79,21 +79,23 @@
 
     ```
 
-8. 从 maven 插件使用 compile 来进行依赖下载并编译开发所需文件, 进行开发
+8. 从项目中选中一个 .java 文件, 从 vscode 右下角 java 图标选择 **lombok configure version**, 选择 maven 所依赖的 lombok 包
 
-9. 使用 `docker pull ubuntu:22.04` 拉取基础的 ubuntu 镜像用于创建部署镜像, 在 **_./proj_tmpl_server/prod/depl_** 目录下建立 **_proj_** 目录, 放入脚本和配置文件:
+9. 从 maven 插件使用 compile 来进行依赖下载并编译开发所需文件, 进行开发
+
+10. 使用 `docker pull ubuntu:22.04` 拉取基础的 ubuntu 镜像用于创建部署镜像, 在 **_./proj_tmpl_server/prod/depl_** 目录下建立 **_proj_** 目录, 放入脚本和配置文件:
 
     - Dockerfile
     - launch.sh<br><br>
 
     调整脚本和配置文件中的参数, 使之符合项目
 
-10. 从 http://www.codebaoku.com/jdk/jdk-index.html 下载 jdk 17 for linux, 使用 `tar -zxvf` 解压到 **_./proj_tmpl_server/prod/depl/proj/jdk_**
+11. 从 http://www.codebaoku.com/jdk/jdk-index.html 下载 jdk 17 for linux, 使用 `tar -zxvf` 解压到 **_./proj_tmpl_server/prod/depl/proj/jdk_**
 
-11. 确认 **_./proj_tmpl_server/prod/data/proj_** 目录被创建
+12. 确认 **_./proj_tmpl_server/prod/data/proj_** 目录被创建
 
-12. 在本地 **_.\proj_tmpl_local\dev_** 目录下建立 **_putty_** 目录, 放入 **plink.exe**
+13. 在本地 **_.\proj_tmpl_local\dev_** 目录下建立 **_putty_** 目录, 放入 **plink.exe**
 
-13. 在 vscode 中重新启动 shell 确保环境被正确设置<br>
+14. 在 vscode 中重新启动 shell 确保环境被正确设置<br>
     使用 `vm start` 启动 linux 虚拟机<br>
     使用 `depl server full` 打包 java 项目, 上传至 linux, 并执行镜像构建脚本, 最后创建容器并运行
