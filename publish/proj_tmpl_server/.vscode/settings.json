@@ -1,0 +1,7 @@
+{
+    // python
+    "python.formatting.provider": "yapf",
+    "python.formatting.yapfPath": "${workspaceFolder}/dev/env/python/install/bin/yapf",
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Path": "${workspaceFolder}/dev/env/python/install/bin/flake8"
+}

@@ -1,0 +1,37 @@
+@import './advanced/base.module.less';
+
+div .layoutRoot {
+    // constant.
+    @box_outer_gap: (10 / @px);
+    @box_border_size: (2 / @px);
+    @background_color: white;
+
+    // variable.
+    @box_border: @box_border_size solid;
+
+    // position.
+    position: fixed;
+    left: @box_outer_gap;
+    right: @box_outer_gap;
+    top: @box_outer_gap;
+    bottom: @box_outer_gap;
+
+    // style.
+    background-color: @background_color;
+    border: @box_border black;
+
+    // behavior.
+    overflow: hidden;
+}
+
+// background image for div.
+#background_image_box(@position) {
+    background-position: @position;
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-image: url('../resource/image_default.png');
+}
+
+div.backgroundImageCenter {
+    #background_image_box(50% 50%);
+}

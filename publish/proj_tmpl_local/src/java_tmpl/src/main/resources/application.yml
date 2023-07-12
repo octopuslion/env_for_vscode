@@ -1,0 +1,57 @@
+# config for prod.
+logging:
+    file:
+        name: /app/log/app.log
+spring:
+    datasource:
+        url: jdbc:mysql://*.*.*.*:3306/prod_db?useSSL=true&serverTimezone=UTC&characterEncoding=UTF8
+        username: remote_user_prod
+        password: *
+        hikari:
+            connection-timeout: 3000
+    sql:
+        init:
+            mode: always
+            encoding: utf-8
+            schema-locations: classpath:./schema.sql
+            data-locations: classpath:./prod/data.sql
+
+# custom.
+global-exception:
+    type: text
+    response: internal error.
+cross-origin:
+    allow-all: true
+    # a list split with comma.
+    hosts: http://localhost:8080
+web-resrouce:
+    web-path: /web
+    resource-path: /app/bin/dist/
+
+---
+# additationl config for for dev if --spring.profiles.active=dev.
+# debug: true
+# trace: true
+logging:
+    file:
+        name: ./log_dev/app_dev.log
+spring:
+    config:
+        activate:
+            on-profile: dev
+    datasource:
+        url: jdbc:mysql://*.*.*.*:3307/dev_db?useSSL=true&serverTimezone=UTC&characterEncoding=UTF8
+        username: remote_user_dev
+    sql:
+        init:
+            data-locations: classpath:./dev/data.sql
+# api doc path: http://localhost:8080/swagger-ui/index.html
+springdoc:
+    api-docs:
+        enabled: true
+
+# custom.
+global-exception:
+    type: message
+web-resrouce:
+    resource-path: ./dist/

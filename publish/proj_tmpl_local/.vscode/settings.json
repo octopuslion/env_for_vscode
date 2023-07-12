@@ -1,0 +1,34 @@
+{
+    // vscode
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "terminal.integrated.profiles.windows": {
+        "Command Prompt": {
+            "path": ["${env:windir}\\Sysnative\\cmd.exe", "${env:windir}\\System32\\cmd.exe"],
+            "args": ["/k", "${workspaceFolder}\\env\\env.bat", "-import"],
+            "icon": "terminal-cmd"
+        }
+    },
+
+    // debugger for java
+    "java.jdt.ls.java.home": "C:\\Users\\~\\project\\proj_tmpl_local\\env\\jdk",
+    "java.configuration.maven.userSettings": "C:\\Users\\~\\project\\proj_tmpl_local\\env\\maven\\settings.xml",
+    "java.configuration.maven.globalSettings": "C:\\Users\\~\\project\\proj_tmpl_local\\env\\maven\\settings.xml",
+
+    // maven for java
+    "terminal.integrated.env.windows": {
+        "JAVA_HOME": "C:\\Users\\~\\project\\proj_tmpl_local\\env\\jdk"
+    },
+    "maven.terminal.customEnv": [
+        {
+            "environmentVariable": "JAVA_HOME",
+            "value": "C:\\Users\\~\\project\\proj_tmpl_local\\env\\jdk"
+        }
+    ],
+    "maven.executable.options": "--settings \"C:\\~\\Octopus\\project\\proj_tmpl_local\\env\\maven\\settings.xml\"",
+
+    // python
+    "python.formatting.provider": "yapf",
+    "python.formatting.yapfPath": "${workspaceFolder}\\env\\python\\Scripts\\yapf.exe",
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Path": "${workspaceFolder}\\env\\python\\Scripts\\flake8.exe"
+}
