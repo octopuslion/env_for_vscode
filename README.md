@@ -2,7 +2,7 @@
 
 这是一份指导手册, 目的在于帮助开发者在 vscode 上搭建全栈开发环境. 在 **_publish/guide_** 目录下记录了在 vscode 中进行各种开发环境配置的指导.
 
-以及在 **_publish/proj_templ_local_** 和 **_publish/proj_templ_server_** 中提供了指导手册中提及的项目模板, 脚本, 和各类配置文件.
+以及在 **_publish/proj_tmpl_local_** 和 **_publish/proj_tmpl_server_** 中提供了指导手册中提及的项目模板, 脚本, 和各类配置文件.
 
 ## Supports
 
