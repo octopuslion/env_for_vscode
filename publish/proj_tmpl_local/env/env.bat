@@ -3,26 +3,27 @@ if not "%1"=="-import" ( goto shell_end )
 if not "%2"=="-silence" ( echo import environment settings to vscode cmd. && echo. )
 
 @rem -------------- options ----------------------------------------------------
-set proj_dir=C:\Users\~\project\proj_tmpl_local
-set git_dir=C:\Users\~\project\env_common\PortableGit
-set git_work_dir=C:\Users\~\project\.git
-set jdk_dir=%proj_dir%\env\jdk
-set node_dir=%proj_dir%\env\node
-set python_dir=%proj_dir%\env\python
-set putty_dir=%proj_dir%\env\putty
-set depl_dir=%proj_dir%\depl
+set proj_dir="C:\Users\~\project\proj_tmpl_local"
+set git_dir="C:\Users\~\project\env_common\PortableGit"
+set git_work_dir="C:\Users\~\project\.git"
+set jdk_dir="%proj_dir:~1,-1%\env\jdk"
+set node_dir="%proj_dir:~1,-1%\env\node"
+set python_dir="%proj_dir:~1,-1%\env\python"
+set putty_dir="%proj_dir:~1,-1%\env\putty"
+set depl_dir="%proj_dir:~1,-1%\depl"
+set srv_dir="%proj_dir:~1,-1%\srv"
 
 @rem -------------- set environment path ---------------------------------------
 @rem git
 if exist "%git_dir%" (
-    set "path=%git_dir%\bin;%path%"
+    set "path=%git_dir:~1,-1%\bin;%path%"
     if exist %git_work_dir% ( set "GIT_DIR=%git_work_dir%" )
     if not "%2"=="-silence" ( echo ... set git path success. )
 ) else if not "%2"=="-silence" ( echo ... set git path failure. )
 
 @rem jdk
 if exist "%jdk_dir%" (
-    set "path=%jdk_dir%\bin;%path%"
+    set "path=%jdk_dir:~1,-1%\bin;%path%"
     set "JAVA_HOME=%jdk_dir%"
     if not "%2"=="-silence" ( echo ... set jdk path success. )
 ) else if not "%2"=="-silence" ( echo ... set jdk path failure. )
@@ -36,7 +37,7 @@ if exist "%node_dir%" (
 @rem python
 if exist "%python_dir%" (
     set "path=%python_dir%;%path%"
-    if exist "%python_dir%\Scripts" ( set "path=%python_dir%;%python_dir%\Scripts;%path%" )
+    if exist "%python_dir:~1,-1%\Scripts" ( set "path=%python_dir%;%python_dir:~1,-1%\Scripts;%path%" )
     if not "%2"=="-silence" ( echo ... set python path success. )
 ) else if not "%2"=="-silence" ( echo ... set python path failure. )
 
@@ -51,6 +52,12 @@ if exist "%depl_dir%" (
     set "path=%depl_dir%;%path%"
     if not "%2"=="-silence" ( echo ... set depl path success. )
 ) else if not "%2"=="-silence" ( echo ... set depl path failure. )
+
+@rem srv
+if exist "%srv_dir%" (
+    set "path=%srv_dir%;%path%"
+    if not "%2"=="-silence" ( echo ... set srv path success. )
+) else if not "%2"=="-silence" ( echo ... set srv path failure. )
 
 @rem current env
 set "path=%~dp0;%path%"

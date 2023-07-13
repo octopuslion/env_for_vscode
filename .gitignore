@@ -1,5 +1,7 @@
 /_inner
-/\.vscode
+/.vscode
 target/
 dist/
 build/
+publish/proj_tmpl_local/srv/*
+!srv.bat

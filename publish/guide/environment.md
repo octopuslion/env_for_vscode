@@ -9,6 +9,7 @@
     |           | env     |
     |           | src     |
     |           | depl    |
+    |           | srv     |
     |           | doc     |
 
 2. 在 **_.\proj_tmpl_local\env_** 下放入 shell 脚本:
@@ -20,6 +21,10 @@
     在 **_.\proj_tmpl_local\depl_** 下放入 shell 脚本:
 
     - depl.bat<br><br>
+
+    在 **_.\proj_tmpl_local\srv_** 下放入 shell 脚本:
+
+    - srv.bat<br><br>
 
     _注意 ***env.bat*** 和 ***depl.bat*** 是必要脚本, 其他脚本根据项目类型调整_
 
