@@ -13,14 +13,16 @@
     - 在 vscode 中重新启动 shell 确保环境被正确设置<br>
       使用 `python .\proj_tmpl_local\env\python\get-pip.py` 安装 pip
     - _(配置一次即可)_ , 从 https://developer.aliyun.com/mirror/pypi 获取配置 pip 源为阿里镜像的方式<br>
-      使用 `pip config set global.index-url https://mirrors.aliyun.com/pypi/simple` 替换源为阿里镜像<br>
+      使用 `python -m pip config set global.index-url https://mirrors.aliyun.com/pypi/simple` 替换源为阿里镜像<br>
       使用
-      `pip config set install.trusted-host mirrors.aliyun.com` 为此镜像地址添加授信<br><br>
+      `python -m pip config set install.trusted-host mirrors.aliyun.com` 为此镜像地址添加授信<br><br>
 
 4. 在 vscode 中重新启动 shell 确保环境被正确设置, 安装以下必要包:
 
-    - 使用 `pip install yapf` 安装代码格式化包
-    - 使用 `pip install flake8` 安装代码提示包<br><br>
+    - 使用 `python -m pip install yapf` 安装代码格式化包
+    - 使用 `python -m pip install flake8` 安装代码提示包
+    - _(可选)_ 使用 `python -m pip install flask` 安装 web 开发包
+    - _(可选)_ 使用 `python -m pip install flasgger` 安装 swagger 包<br><br>
 
 5. 在 **_.\proj_tmpl_local\env\python_** 目录下放入 **_custom.pth_** 文件, 在 vscode 插件目录 **_C:\Users\\~\\.vscode\extensions_** 中找到 **Flake8** 的插件目录 **_ms-python.flake8-2023.6.0_** , 将此目录下的 **_bundled\tool_** 目录更新至 **_custom.pth_** 文件中
 
@@ -31,7 +33,7 @@
     "python.formatting.provider": "yapf",
     "python.formatting.yapfPath": "${workspaceFolder}\\env\\python\\Scripts\\yapf.exe",
     "python.linting.flake8Enabled": true,
-    "python.linting.flake8Path": "${workspaceFolder}\\env\\python\\Scripts\\flake8.exe",
+    // "python.linting.flake8Path": "${workspaceFolder}\\env\\python\\Scripts\\flake8.exe",
     ```
 
 7. 在项目 **_.\proj_tmpl_local\src_** 目录下建立 python 目录, 参考 **_.\proj_tmpl_local\src\python_tmpl_**
@@ -50,8 +52,10 @@
                 "console": "integratedTerminal",
                 "justMyCode": true,
                 "cwd": "${workspaceFolder}/src/python_tmpl",
+                "args": ["dev"],
                 "env": {
-                    "PYTHONPATH": "${workspaceFolder}/src/python_tmpl;${env:PYTHONPATH}"
+                    "PYTHONPATH": "${workspaceFolder}/src/python_tmpl;${env:PYTHONPATH}",
+                    "PYDEVD_DISABLE_FILE_VALIDATION": "1"
                 }
             }
         ]
@@ -79,7 +83,11 @@
 4. 安装以下必要包:
 
     - 使用 `pip3 install yapf` 安装代码格式化包
-    - 使用 `pip3 install flake8` 安装代码提示包<br><br>
+    - 使用 `pip3 install flake8` 安装代码提示包
+    - _(可选)_ 使用 `pip3 install flask` 安装 web 开发包
+    - _(可选)_ 使用 `pip3 install flasgger` 安装 swagger 包
+    - _(可选)_ 使用 `pip3 install gunicorn` 安装 gunicorn 包
+    - _(可选)_ 使用 `pip3 install gevent` 安装 gevent 包配合 gunicorn 使用<br><br>
 
 5. 在 vscode 插件中为 linux 安装以下插件:
 
@@ -99,6 +107,7 @@
     "python.formatting.yapfPath": "${workspaceFolder}/dev/env/python/install/bin/yapf",
     "python.linting.flake8Enabled": true,
     "python.linting.flake8Path": "${workspaceFolder}/dev/env/python/install/bin/flake8",
+    "python.defaultInterpreterPath": "/home/~/project/dev/env/python/install/bin"
 
     ```
 
@@ -119,7 +128,8 @@
                 "justMyCode": true,
                 "cwd": "${workspaceFolder}/src/python_tmpl",
                 "env": {
-                    "PYTHONPATH": "${workspaceFolder}/src/python_tmpl;${env:PYTHONPATH}"
+                    "PYTHONPATH": "${workspaceFolder}/src/python_tmpl;${env:PYTHONPATH}",
+                    "PYDEVD_DISABLE_FILE_VALIDATION": "1"
                 }
             }
         ]
