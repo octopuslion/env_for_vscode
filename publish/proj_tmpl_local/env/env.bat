@@ -37,7 +37,6 @@ if exist "%node_dir%" (
 @rem python
 if exist "%python_dir%" (
     set "path=%python_dir%;%path%"
-    if exist "%python_dir:~1,-1%\Scripts" ( set "path=%python_dir%;%python_dir:~1,-1%\Scripts;%path%" )
     if not "%2"=="-silence" ( echo ... set python path success. )
 ) else if not "%2"=="-silence" ( echo ... set python path failure. )
 
